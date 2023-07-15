@@ -1,7 +1,6 @@
-// Number Types mini-challenge
-// Write a function that will only accept numbers and attend to
-// all TypeScript weakness flags.
-const reviewTotalDisplay = document.querySelector('#reviews') as HTMLHeadingElement
+const reviewTotalDisplay = document.querySelector('#reviews')
+
+let variable = true
 
 const reviews = [
 	{
@@ -24,8 +23,19 @@ const reviews = [
 	},
 ]
 
+// Solution
+// function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
+// 	const iconDisplay = isLoyalty ? '⭐' : ''
+// 	reviewTotalDisplay.innerHTML =
+// 		'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay
+// }
+
+// showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
+
+// 1. Funkcja która pokaże nam liczbę recenzji oraz wyswietli kto napisał ostatnią recenzje, dodatkowo jesli uzytownki ma loyalityuser na true ( boolean), to ma mu sie dodac gwiazdka na koncu
+
 function showReviewTotal(value: number) {
-	reviewTotalDisplay.innerHTML = 'review total ' + value.toString()
+	reviewTotalDisplay.innerHTML = 'review total |' + value.toString()
 }
 
 showReviewTotal(reviews.length)
