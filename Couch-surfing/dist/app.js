@@ -1,6 +1,9 @@
+// then  add an age and lastName to the 'you' Object, making sure to account for it in the Specialised
+// Object for defining its structure.
 const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const reviewTotalDisplay = document.querySelector('#reviews');
+let isOpen;
 const reviews = [
     {
         name: 'Sheia',
@@ -28,14 +31,18 @@ function showReviewTotal(value, reviewer, isLoyalty) {
 }
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 const you = {
-    userName: 'Bobby',
+    firstName: 'Bobby',
+    lastName: 'Brown',
     isReturning: true,
+    age: 35,
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow', 24],
 };
+console.log(you.stayedAt);
 function populateUser(isReturning, userName) {
     if (isReturning) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;
 }
-populateUser(you.isReturning, you.userName);
+populateUser(you.isReturning, you.firstName);
 // 1. Funkcja która pokaże nam liczbę recenzji oraz wyswietli kto napisał ostatnią recenzje, dodatkowo jesli uzytownki ma loyalityuser na true ( boolean), to ma mu sie dodac gwiazdka na koncu
