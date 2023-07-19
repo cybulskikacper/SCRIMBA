@@ -43,7 +43,7 @@ const you: {
 	age: number
 	stayedAt: string[]
 } = {
-	firstName: 'Bob',
+	firstName: 'Bobby',
 	lastName: 'Brown',
 	isReturning: true,
 	age: 35,
