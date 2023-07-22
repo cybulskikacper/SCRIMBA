@@ -1,5 +1,3 @@
-// then  add an age and lastName to the 'you' Object, making sure to account for it in the Specialised
-// Object for defining its structure.
 const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const reviewTotalDisplay = document.querySelector('#reviews');
@@ -24,6 +22,21 @@ const reviews = [
         date: '27-03-2021',
     },
 ];
+const info = [
+    {
+        image: 'img/src/..',
+        title: 'Nordic Heaven',
+        price: 200,
+        firstLine: {
+            adress: 'Kowalskiego',
+            number: 44,
+        },
+        town: 'Bydgoszcz',
+        country: 'Poland',
+        contactInfo: ['Pomoroska', 42, true],
+        isAvaiable: true,
+    },
+];
 function showReviewTotal(value, reviewer, isLoyalty) {
     const iconDisplay = isLoyalty ? '⭐' : '';
     reviewTotalDisplay.innerHTML =
@@ -37,9 +50,8 @@ const you = {
     age: 35,
     stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow'],
 };
-console.log(you.stayedAt);
 function populateUser(isReturning, userName) {
-    if (isReturning) {
+    if (isReturning == true) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;

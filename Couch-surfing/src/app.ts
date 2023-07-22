@@ -29,6 +29,31 @@ const reviews: {
 	},
 ]
 
+const info: {
+	image: string
+	title: string
+	price: number
+	firstLine: { adress: string; number: number }
+	town: string
+	country: string
+	contactInfo: (string | number | boolean)[]
+	isAvaiable: boolean
+}[] = [
+	{
+		image: 'img/src/..',
+		title: 'Nordic Heaven',
+		price: 200,
+		firstLine: {
+			adress: 'Kowalskiego',
+			number: 44,
+		},
+		town: 'Bydgoszcz',
+		country: 'Poland',
+		contactInfo: ['Pomoroska', 42, true],
+		isAvaiable: true,
+	},
+]
+
 function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
 	const iconDisplay = isLoyalty ? '⭐' : ''
 	reviewTotalDisplay.innerHTML =
