@@ -1,13 +1,14 @@
-// then  add an age and lastName to the 'you' Object, making sure to account for it in the Specialised
-// Object for defining its structure.
-
 const returningUserDisplay = document.querySelector('#returning-user')
 const userNameDisplay = document.querySelector('#user')
 const reviewTotalDisplay = document.querySelector('#reviews')
-
 let isOpen: boolean
 
-const reviews = [
+const reviews: {
+	name: string
+	stars: number
+	loyaltyUser: boolean
+	date: string
+}[] = [
 	{
 		name: 'Sheia',
 		stars: 5,
@@ -50,10 +51,8 @@ const you: {
 	stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow'],
 }
 
-console.log(you.stayedAt)
-
 function populateUser(isReturning: boolean, userName: string) {
-	if (isReturning) {
+	if (isReturning == true) {
 		returningUserDisplay.innerHTML = 'back'
 	}
 	userNameDisplay.innerHTML = userName

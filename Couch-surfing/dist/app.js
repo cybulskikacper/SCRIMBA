@@ -35,7 +35,7 @@ const you = {
     lastName: 'Brown',
     isReturning: true,
     age: 35,
-    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow', 24],
+    stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow'],
 };
 console.log(you.stayedAt);
 function populateUser(isReturning, userName) {
