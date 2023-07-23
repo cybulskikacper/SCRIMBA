@@ -1,7 +1,7 @@
-import { showReviewTotal, populateUser } from './utils'
+import { showReviewTotal, populateUser } from './utils.js'
+
 let isOpen: boolean
 
-// Reviews
 const reviews: {
 	name: string
 	stars: number
@@ -28,33 +28,6 @@ const reviews: {
 	},
 ]
 
-// Array Task
-
-const info: {
-	image: string
-	title: string
-	price: number
-	firstLine: { adress: string; number: number }
-	town: string
-	country: string
-	contactInfo: (string | number | boolean)[]
-	isAvaiable: boolean
-}[] = [
-	{
-		image: 'img',
-		title: 'Nordic Heaven',
-		price: 200,
-		firstLine: {
-			adress: 'Kowalskiego',
-			number: 44,
-		},
-		town: 'Bydgoszcz',
-		country: 'Poland',
-		contactInfo: ['Pomoroska', 42, true],
-		isAvaiable: true,
-	},
-]
-
 // User
 const you: {
 	firstName: string
@@ -69,6 +42,61 @@ const you: {
 	age: 35,
 	stayedAt: ['florida-home', 'oman-flat', 'tokyo-bungalow'],
 }
+
+//Properties
+const properties: {
+	image: string
+	title: string
+	price: number
+	location: {
+		firstLine: string
+		city: string
+		code: number
+		country: string
+	}
+	contact: string
+	isAvailable: boolean
+}[] = [
+	{
+		image: '',
+		title: 'Colombian Shack',
+		price: 45,
+		location: {
+			firstLine: 'shack 37',
+			city: 'Bogota',
+			code: 45632,
+			country: 'Colombia',
+		},
+		contact: 'marywinkle@gmail.com',
+		isAvailable: true,
+	},
+	{
+		image: '',
+		title: 'Polish Cottage',
+		price: 34,
+		location: {
+			firstLine: 'no 23',
+			city: 'Gdansk',
+			code: 343903,
+			country: 'Poland',
+		},
+		contact: 'garydavis@hotmail.com',
+		isAvailable: false,
+	},
+	{
+		image: '',
+		title: 'London Flat',
+		price: 23,
+		location: {
+			firstLine: 'flat 15',
+			city: 'London',
+			code: 35433,
+			country: 'United Kingdom',
+		},
+		contact: 'andyluger@aol.com',
+		isAvailable: true,
+	},
+]
 
 // Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser)
