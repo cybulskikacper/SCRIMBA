@@ -7,7 +7,7 @@ export function showReviewTotal(value, reviewer, isLoyalty) {
         'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 export function populateUser(isReturning, userName) {
-    if (isReturning == true) {
+    if (isReturning) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;
