@@ -91,6 +91,9 @@ function showDetails(authorityStatus, element, price) {
         element.appendChild(priceDisplay);
     }
 }
+function add(firstValue, secondValue) {
+    return firstValue + secondValue;
+}
 // Add the properties
 for (let i = 0; i < properties.length; i++) {
     const card = document.createElement('div');

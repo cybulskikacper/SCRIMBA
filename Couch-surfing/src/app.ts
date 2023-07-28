@@ -5,6 +5,7 @@
 
 import { showReviewTotal, populateUser } from './utils.js'
 import { Permissions, LoyaltyUser } from './enums.js'
+import { Price, Country } from './aliases.js'
 
 const propertyContainer = document.querySelector('.properties')
 const footer = document.querySelector('.footer')
@@ -52,7 +53,7 @@ const properties: {
 		firstLine: string
 		city: string
 		code: number
-		country: string
+		country: Country
 	}
 	contact: [number, string]
 	isAvailable: boolean
@@ -112,6 +113,10 @@ function showDetails(authorityStatus: boolean | Permissions, element: HTMLDivEle
 		priceDisplay.innerHTML = price.toString() + '/night'
 		element.appendChild(priceDisplay)
 	}
+}
+
+function add(firstValue: number, secondValue: number): number {
+	return firstValue + secondValue
 }
 
 // Add the properties
