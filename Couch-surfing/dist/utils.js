@@ -4,29 +4,25 @@ const userNameDisplay = document.querySelector('#user');
 import { LoyaltyUser } from './enums.js';
 export function showReviewTotal(value, reviewer, isLoyalty) {
     const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : '';
-    reviewTotalDisplay.innerHTML =
-        'review total ' + value.toString() + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
+    reviewTotalDisplay.innerHTML = value.toString() + ' Reviews' + makeMultiple(value) + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 export function populateUser(isReturning, userName) {
-    if (isReturning == true) {
+    if (isReturning) {
         returningUserDisplay.innerHTML = 'back';
     }
     userNameDisplay.innerHTML = userName;
 }
-function add(firstValue, secondValue) {
-    let result;
-    if (typeof firstValue === 'number' && typeof secondValue === 'number') {
-        result = firstValue + secondValue;
-    }
-    if (typeof firstValue === 'string' && typeof secondValue === 'string') {
-        result = firstValue + ' ' + secondValue;
-    }
-    if (typeof firstValue === 'number' && typeof secondValue === 'string') {
-        console.log('cannot perform this addition');
-    }
-    if (typeof firstValue === 'string' && typeof secondValue === 'number') {
-        console.log('cannot perform this addition');
+export function showDetails(value, element, price) {
+    if (value) {
+        const priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = price.toString() + '/night';
+        element.appendChild(priceDisplay);
     }
 }
-const combinedReviews = add(5, 1);
-const firstNameLastName = add('Ania', 'Kubow');
+export function makeMultiple(value) {
+    if (value > 1 || value == 0) {
+        return 's';
+    }
+    else
+        return '';
+}

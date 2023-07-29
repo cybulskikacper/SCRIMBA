@@ -1,7 +1,6 @@
-// Union Types Challenge
-// 1. Fix the function to show the price per night for each property card only
-// if isLoggedIn is true, or the you object has Permissions. (all permissions should work)
-// 2. See what happens when a null object to be passed to the you objects permissions.
+// Function Return Types + Void Types mini-challenge
+// Instead of having a long 'review total 3', can you make the line say '3 reviews', or '1 review'
+// if there is only one? Use a function to do this and assing a type to the functions return.
 import { showReviewTotal, populateUser } from './utils.js';
 import { Permissions, LoyaltyUser } from './enums.js';
 const propertyContainer = document.querySelector('.properties');
