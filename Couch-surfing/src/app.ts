@@ -1,12 +1,16 @@
-// Function Return Types + Void Types mini-challenge
-// Instead of having a long 'review total 3', can you make the line say '3 reviews', or '1 review'
-// if there is only one? Use a function to do this and assing a type to the functions return.
+// Function Types challenge - Pass the code review
+// 1. Add types to the function that returns the top 2 reviews specifically based on
+// descending order. Make sure to use what you learned in the previous lessons.
+// 2. Add types to the function in this file that shows the reviews when we click the button
 
-import { showReviewTotal, populateUser } from './utils.js'
+import { showReviewTotal, populateUser, getTopTwoReviews } from './utils.js'
 import { Permissions, LoyaltyUser } from './enums.js'
 import { Price, Country } from './aliases.js'
 
 const propertyContainer = document.querySelector('.properties')
+const reviewContainer = document.querySelector('.reviews')
+const container = document.querySelector('.container')
+const button = document.querySelector('button')
 const footer = document.querySelector('.footer')
 
 let isLoggedIn: boolean
@@ -99,7 +103,7 @@ const properties: {
 ]
 
 // Functions
-showReviewTotal(0, reviews[0].name, reviews[0].loyaltyUser)
+showReviewTotal(1, reviews[0].name, reviews[0].loyaltyUser)
 populateUser(you.isReturning, you.firstName)
 
 let authorityStatus: any
@@ -129,6 +133,29 @@ for (let i = 0; i < properties.length; i++) {
 	propertyContainer.appendChild(card)
 	showDetails(you.permissions, card, properties[i].price)
 }
+
+let count = 0
+function addReviews(
+	array: {
+		name: string
+		stars: number
+		loyaltyUser: true
+	}[]
+): void {
+	if (!count) {
+		count++
+		const topTwo = getTopTwoReviews(array)
+		for (let i = 0; i < topTwo.length; i++) {
+			const card = document.createElement('div')
+			card.classList.add('review-card')
+			card.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name
+			reviewContainer.appendChild(card)
+		}
+		container.removeChild(button)
+	}
+}
+
+button.addEventListener('click', () => addReviews(reviews))
 
 let currentLocation: [string, string, number] = ['London', '11.03', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'

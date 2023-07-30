@@ -6,7 +6,7 @@ import { LoyaltyUser, Permissions } from './enums.js'
 export function showReviewTotal(value: number, reviewer: string, isLoyalty: LoyaltyUser) {
 	const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : ''
 	reviewTotalDisplay.innerHTML =
-		value.toString() + ' Reviews' + makeMultiple(value) + '| last reviewed by ' + reviewer + ' ' + iconDisplay
+		value.toString() + ' Review' + makeMultiple(value) + '| last reviewed by ' + reviewer + ' ' + iconDisplay
 }
 
 export function populateUser(isReturning: boolean, userName: string) {
@@ -24,8 +24,23 @@ export function showDetails(value: boolean | Permissions, element: HTMLDivElemen
 	}
 }
 
-export function makeMultiple(value: number) {
+export function makeMultiple(value: number): string {
 	if (value > 1 || value == 0) {
 		return 's'
 	} else return ''
+}
+
+export function getTopTwoReviews(
+	reviews: {
+		name: string
+		stars: number
+		date: string
+	}[]
+): {
+	name: string
+	stars: number
+	date: string
+}[] {
+	const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
+	return sortedReviews.slice(0, 2)
 }

@@ -4,7 +4,8 @@ const userNameDisplay = document.querySelector('#user');
 import { LoyaltyUser } from './enums.js';
 export function showReviewTotal(value, reviewer, isLoyalty) {
     const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : '';
-    reviewTotalDisplay.innerHTML = value.toString() + ' Reviews' + makeMultiple(value) + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
+    reviewTotalDisplay.innerHTML =
+        value.toString() + ' Review' + makeMultiple(value) + '| last reviewed by ' + reviewer + ' ' + iconDisplay;
 }
 export function populateUser(isReturning, userName) {
     if (isReturning) {
@@ -25,4 +26,8 @@ export function makeMultiple(value) {
     }
     else
         return '';
+}
+export function getTopTwoReviews(reviews) {
+    const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
+    return sortedReviews.slice(0, 2);
 }
