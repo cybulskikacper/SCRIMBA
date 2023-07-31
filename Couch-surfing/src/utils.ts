@@ -2,6 +2,7 @@ const reviewTotalDisplay = document.querySelector('#reviews')
 const returningUserDisplay = document.querySelector('#returning-user')
 const userNameDisplay = document.querySelector('#user')
 import { LoyaltyUser, Permissions } from './enums.js'
+import Review from './interfaces.js'
 
 export function showReviewTotal(value: number, reviewer: string, isLoyalty: LoyaltyUser) {
 	const iconDisplay = LoyaltyUser.GOLD_USER ? '⭐' : ''
@@ -30,17 +31,7 @@ export function makeMultiple(value: number): string {
 	} else return ''
 }
 
-export function getTopTwoReviews(
-	reviews: {
-		name: string
-		stars: number
-		date: string
-	}[]
-): {
-	name: string
-	stars: number
-	date: string
-}[] {
+export function getTopTwoReviews(reviews: Review[]): Review[] {
 	const sortedReviews = reviews.sort((a, b) => b.stars - a.stars)
 	return sortedReviews.slice(0, 2)
 }

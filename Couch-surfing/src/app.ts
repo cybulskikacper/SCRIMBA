@@ -1,11 +1,8 @@
-// Function Types challenge - Pass the code review
-// 1. Add types to the function that returns the top 2 reviews specifically based on
-// descending order. Make sure to use what you learned in the previous lessons.
-// 2. Add types to the function in this file that shows the reviews when we click the button
-
 import { showReviewTotal, populateUser, getTopTwoReviews } from './utils.js'
 import { Permissions, LoyaltyUser } from './enums.js'
 import { Price, Country } from './aliases.js'
+import { Info, Location } from './interfaces.js'
+import Review from './interfaces.js'
 
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
@@ -16,7 +13,7 @@ const footer = document.querySelector('.footer')
 let isLoggedIn: boolean
 
 // Reviews
-const reviews: any[] = [
+const reviews: Review[] = [
 	{
 		name: 'Sheia',
 		stars: 5,
@@ -34,7 +31,6 @@ const reviews: any[] = [
 		stars: 4,
 		loyaltyUser: LoyaltyUser.SILVER_USER,
 		date: '27-03-2021',
-		description: 'Great hosts, location was a bit further than said.',
 	},
 ]
 
@@ -48,58 +44,58 @@ const you = {
 }
 
 // Array of Properties
-const properties: {
-	image: string
-	title: string
-	price: number
-	location: {
-		firstLine: string
-		city: string
-		code: number
-		country: Country
-	}
-	contact: [number, string]
-	isAvailable: boolean
+const properties : {
+    image: string;
+    title: string;
+    price: number;
+    location: {
+        firstLine: string;
+        city: string;
+        code: number;
+        country: string;
+    };
+    contact: [ number, string ];
+    isAvailable: boolean;
 }[] = [
-	{
-		image: 'images/colombia-property.jpg',
-		title: 'Colombian Shack',
-		price: 45,
-		location: {
-			firstLine: 'shack 37',
-			city: 'Bogota',
-			code: 45632,
-			country: 'Colombia',
-		},
-		contact: [+112343823978921, 'marywinkle@gmail.com'],
-		isAvailable: true,
-	},
-	{
-		image: 'images/poland-property.jpg',
-		title: 'Polish Cottage',
-		price: 34,
-		location: {
-			firstLine: 'no 23',
-			city: 'Gdansk',
-			code: 343903,
-			country: 'Poland',
-		},
-		contact: [+1298239028490830, 'garydavis@hotmail.com'],
-		isAvailable: false,
-	},
-	{
-		image: 'images/london-property.jpg',
-		title: 'London Flat',
-		price: 23,
-		location: {
-			firstLine: 'flat 15',
-			city: 'London',
-			code: 35433,
-			country: 'United Kingdom',
-		},
-		contact: [+34829374892553, 'andyluger@aol.com'],
-		isAvailable: true,
-	},
+    {
+        image: 'images/colombia-property.jpg',
+        title: 'Colombian Shack',
+        price: 45,
+        location: {
+            firstLine: 'shack 37',
+            city: 'Bogota',
+            code: 45632,
+            country: 'Colombia'
+        },
+        contact: [+112343823978921, 'marywinkle@gmail.com'],
+        isAvailable: true  
+    },
+    {
+        image: 'images/poland-property.jpg',
+        title: 'Polish Cottage',
+        price: 34,
+        location: {
+            firstLine: 'no 23',
+            city: 'Gdansk',
+            code: 343903,
+            country: 'Poland'
+        },
+        contact: [+1298239028490830, 'garydavis@hotmail.com'],
+        isAvailable: false 
+    },
+    {
+        image: 'images/london-property.jpg',
+        title: 'London Flat',
+        price: 23,
+        location: {
+            firstLine: 'flat 15',
+            city: 'London',
+            code: 35433,
+            country: 'United Kingdom',
+        },
+        contact: [+34829374892553, 'andyluger@aol.com'],
+        isAvailable: true
+    }
 ]
 
 // Functions
@@ -135,13 +131,7 @@ for (let i = 0; i < properties.length; i++) {
 }
 
 let count = 0
-function addReviews(
-	array: {
-		name: string
-		stars: number
-		loyaltyUser: true
-	}[]
-): void {
+function addReviews(array: Review[]): void {
 	if (!count) {
 		count++
 		const topTwo = getTopTwoReviews(array)
@@ -159,3 +149,39 @@ button.addEventListener('click', () => addReviews(reviews))
 
 let currentLocation: [string, string, number] = ['London', '11.03', 17]
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°'
+
+// Classes
+
+class Car {
+	make: string
+	year: number
+	color: string
+
+	constructor(make: string, year: number, color: string) {
+		this.make = make
+		this.year = year
+		this.color = color
+	}
+}
+
+// / 1. Add a Class that will let us create a main image, it should allow us to
+// store the reviews, the src and title.
+
+class mainImage {
+	reviews: Review[]
+	src: string
+	title: string
+
+	constructor(reviews: Review[], src: string, title: string) {
+		this.src = src
+		this.title = title
+		this.reviews = reviews
+	}
+}
+
+let yourMainProperty = new MainProperty()
+
+const mainImageContainer = document.querySelector('.main-image')
+const image = document.createElement('img')
+image.setAttribute('src', yourMainProperty.src)
+mainImageContainer.appendChild(image)

@@ -29,7 +29,6 @@ const reviews = [
         stars: 4,
         loyaltyUser: LoyaltyUser.SILVER_USER,
         date: '27-03-2021',
-        description: 'Great hosts, location was a bit further than said.',
     },
 ];
 const you = {
@@ -125,3 +124,25 @@ function addReviews(array) {
 button.addEventListener('click', () => addReviews(reviews));
 let currentLocation = ['London', '11.03', 17];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';
+// Classes
+class Car {
+    constructor(make, year, color) {
+        this.make = make;
+        this.year = year;
+        this.color = color;
+    }
+}
+// / 1. Add a Class that will let us create a main image, it should allow us to
+// store the reviews, the src and title.
+class mainImage {
+    constructor(reviews, src, title) {
+        this.src = src;
+        this.title = title;
+        this.reviews = reviews;
+    }
+}
+let yourMainProperty = new MainProperty();
+const mainImageContainer = document.querySelector('.main-image');
+const image = document.createElement('img');
+image.setAttribute('src', yourMainProperty.src);
+mainImageContainer.appendChild(image);

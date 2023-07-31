@@ -27,6 +27,26 @@ export function makeMultiple(value) {
     else
         return '';
 }
+// const reviews: Review[] = [
+// 	{
+// 		name: 'Sheia',
+// 		stars: 5,
+// 		loyaltyUser: LoyaltyUser.GOLD_USER,
+// 		date: '01-04-2021',
+// 	},
+// 	{
+// 		name: 'Andrzej',
+// 		stars: 3,
+// 		loyaltyUser: LoyaltyUser.BRONZE_USER,
+// 		date: '28-03-2021',
+// 	},
+// 	{
+// 		name: 'Omar',
+// 		stars: 4,
+// 		loyaltyUser: LoyaltyUser.SILVER_USER,
+// 		date: '27-03-2021',
+// 	},
+// ]
 export function getTopTwoReviews(reviews) {
     const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
     return sortedReviews.slice(0, 2);
