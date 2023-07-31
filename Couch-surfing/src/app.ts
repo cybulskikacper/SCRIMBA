@@ -1,7 +1,7 @@
 import { showReviewTotal, populateUser, getTopTwoReviews } from './utils.js'
 import { Permissions, LoyaltyUser } from './enums.js'
 import { Price, Country } from './aliases.js'
-import { Info, Location } from './interfaces.js'
+import { Property } from './interfaces.js'
 import Review from './interfaces.js'
 
 const propertyContainer = document.querySelector('.properties')
@@ -44,58 +44,69 @@ const you = {
 }
 
 // Array of Properties
-const properties : {
-    image: string;
-    title: string;
-    price: number;
-    location: {
-        firstLine: string;
-        city: string;
-        code: number;
-        country: string;
-    };
-    contact: [ number, string ];
-    isAvailable: boolean;
+const properties: {
+	image: string
+	title: string
+	price: number
+	location: {
+		firstLine: string
+		city: string
+		code: number
+		country: string
+	}
+	contact: [number, string]
+	isAvailable: boolean
 }[] = [
-    {
-        image: 'images/colombia-property.jpg',
-        title: 'Colombian Shack',
-        price: 45,
-        location: {
-            firstLine: 'shack 37',
-            city: 'Bogota',
-            code: 45632,
-            country: 'Colombia'
-        },
-        contact: [+112343823978921, 'marywinkle@gmail.com'],
-        isAvailable: true  
-    },
-    {
-        image: 'images/poland-property.jpg',
-        title: 'Polish Cottage',
-        price: 34,
-        location: {
-            firstLine: 'no 23',
-            city: 'Gdansk',
-            code: 343903,
-            country: 'Poland'
-        },
-        contact: [+1298239028490830, 'garydavis@hotmail.com'],
-        isAvailable: false 
-    },
-    {
-        image: 'images/london-property.jpg',
-        title: 'London Flat',
-        price: 23,
-        location: {
-            firstLine: 'flat 15',
-            city: 'London',
-            code: 35433,
-            country: 'United Kingdom',
-        },
-        contact: [+34829374892553, 'andyluger@aol.com'],
-        isAvailable: true
-    }
+	{
+		image: 'images/colombia-property.jpg',
+		title: 'Colombian Shack',
+		price: 45,
+		location: {
+			firstLine: 'shack 37',
+			city: 'Bogota',
+			code: 45632,
+			country: 'Colombia',
+		},
+		contact: [+112343823978921, 'marywinkle@gmail.com'],
+		isAvailable: true,
+	},
+	{
+		image: 'images/poland-property.jpg',
+		title: 'Polish Cottage',
+		price: 30,
+		location: {
+			firstLine: 'no 23',
+			city: 'Gdansk',
+			code: 343903,
+			country: 'Poland',
+		},
+		contact: [+1298239028490830, 'garydavis@hotmail.com'],
+		isAvailable: false,
+	},
+	{
+		image: 'images/london-property.jpg',
+		title: 'London Flat',
+		price: 25,
+		location: {
+			firstLine: 'flat 15',
+			city: 'London',
+			code: 35433,
+			country: 'United Kingdom',
+		},
+		contact: [+34829374892553, 'andyluger@aol.com'],
+		isAvailable: true,
+	},
+	{ 
+		image: 
+
+	}
+	// add another property card. The Property should have:
+	// 1 x picture of a 'Malaysian Hotel' called 'Malia Hotel'
+	// It should cost 35/night
+	// It's location should be 'Room 4, Malia , Malaysia, 45334'
+	// The contact email should be 'lee34@gmail.com'
+	// The phone number for the property should be +60349822083
+	// It should not be available
 ]
 
 // Functions
@@ -164,22 +175,24 @@ class Car {
 	}
 }
 
-// / 1. Add a Class that will let us create a main image, it should allow us to
-// store the reviews, the src and title.
-
-class mainImage {
-	reviews: Review[]
+class MainProperty {
 	src: string
 	title: string
-
-	constructor(reviews: Review[], src: string, title: string) {
+	reviews: Review[]
+	constructor(src: string, title: string, reviews: Review[]) {
 		this.src = src
 		this.title = title
 		this.reviews = reviews
 	}
 }
-
-let yourMainProperty = new MainProperty()
+let yourMainProperty = new MainProperty('images/italian-property.jpg', 'Italian Property', [
+	{
+		name: 'Oliv',
+		stars: 5,
+		loyaltyUser: LoyaltyUser.GOLD_USER,
+		date: '12-04-2021',
+	},
+])
 
 const mainImageContainer = document.querySelector('.main-image')
 const image = document.createElement('img')

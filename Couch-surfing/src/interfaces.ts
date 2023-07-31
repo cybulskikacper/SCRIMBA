@@ -8,17 +8,18 @@ export default interface Review {
 	date: string
 }
 
-export interface Info {
+export interface Property {
 	image: string
 	title: string
-	price: number
-}
-
-export interface Location{
-	firstLine: string
-	city: string
-	code: number
-	country: Country
+	price: Price
+	location: {
+		firstLine: string
+		city: string
+		code: number | string
+		country: Country
+	}
+	contact: [number, string]
+	isAvailable: boolean
 }
 
 const reviews: Review[] = [

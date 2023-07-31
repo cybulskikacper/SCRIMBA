@@ -1,7 +1,3 @@
-// Function Types challenge - Pass the code review
-// 1. Add types to the function that returns the top 2 reviews specifically based on
-// descending order. Make sure to use what you learned in the previous lessons.
-// 2. Add types to the function in this file that shows the reviews when we click the button
 import { showReviewTotal, populateUser, getTopTwoReviews } from './utils.js';
 import { Permissions, LoyaltyUser } from './enums.js';
 const propertyContainer = document.querySelector('.properties');
@@ -57,7 +53,7 @@ const properties = [
     {
         image: 'images/poland-property.jpg',
         title: 'Polish Cottage',
-        price: 34,
+        price: 30,
         location: {
             firstLine: 'no 23',
             city: 'Gdansk',
@@ -70,7 +66,7 @@ const properties = [
     {
         image: 'images/london-property.jpg',
         title: 'London Flat',
-        price: 23,
+        price: 25,
         location: {
             firstLine: 'flat 15',
             city: 'London',
@@ -132,16 +128,21 @@ class Car {
         this.color = color;
     }
 }
-// / 1. Add a Class that will let us create a main image, it should allow us to
-// store the reviews, the src and title.
-class mainImage {
-    constructor(reviews, src, title) {
+class MainProperty {
+    constructor(src, title, reviews) {
         this.src = src;
         this.title = title;
         this.reviews = reviews;
     }
 }
-let yourMainProperty = new MainProperty();
+let yourMainProperty = new MainProperty('images/italian-property.jpg', 'Italian Property', [
+    {
+        name: 'Oliv',
+        stars: 5,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
+        date: '12-04-2021',
+    },
+]);
 const mainImageContainer = document.querySelector('.main-image');
 const image = document.createElement('img');
 image.setAttribute('src', yourMainProperty.src);
