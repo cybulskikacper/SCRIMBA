@@ -76,6 +76,26 @@ const properties = [
         contact: [+34829374892553, 'andyluger@aol.com'],
         isAvailable: true,
     },
+    // add another property card. The Property should have:
+    // 1 x picture of a 'Malaysian Hotel' called 'Malia Hotel'
+    // It should cost 35/night
+    // It's location should be 'Room 4, Malia , Malaysia, 45334'
+    // The contact email should be 'lee34@gmail.com'
+    // The phone number for the property should be +60349822083
+    // It should not be available
+    {
+        image: 'images/malaysian-hotel.jpg',
+        title: 'Malia Hotel',
+        price: 35,
+        location: {
+            firstLine: 'Room 4 ',
+            city: 'Malia',
+            code: 45334,
+            country: 'Malaysia',
+        },
+        contact: [+60349822083, 'lee34@gmail.com'],
+        isAvailable: false,
+    },
 ];
 // Functions
 showReviewTotal(1, reviews[0].name, reviews[0].loyaltyUser);
