@@ -1,7 +1,7 @@
 import { Permissions, LoyaltyUser } from './enums.js'
 import { Price, Country } from './aliases.js'
 
-export default interface Review {
+export interface Review {
 	name: string
 	stars: number
 	loyaltyUser: LoyaltyUser

@@ -1,8 +1,8 @@
 import { showReviewTotal, populateUser, getTopTwoReviews } from './utils.js'
 import { Permissions, LoyaltyUser } from './enums.js'
 import { Price, Country } from './aliases.js'
-import { Property } from './interfaces.js'
-import Review from './interfaces.js'
+import { Property, Review } from './interfaces.js'
+import MainProperty from './classes.js'
 
 const propertyContainer = document.querySelector('.properties')
 const reviewContainer = document.querySelector('.reviews')
@@ -96,13 +96,6 @@ const properties: {
 		contact: [+34829374892553, 'andyluger@aol.com'],
 		isAvailable: true,
 	},
-	// add another property card. The Property should have:
-	// 1 x picture of a 'Malaysian Hotel' called 'Malia Hotel'
-	// It should cost 35/night
-	// It's location should be 'Room 4, Malia , Malaysia, 45334'
-	// The contact email should be 'lee34@gmail.com'
-	// The phone number for the property should be +60349822083
-	// It should not be available
 
 	{
 		image: 'images/malaysian-hotel.jpg',
@@ -173,31 +166,9 @@ footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + current
 
 // Classes
 
-class Car {
-	make: string
-	year: number
-	color: string
-
-	constructor(make: string, year: number, color: string) {
-		this.make = make
-		this.year = year
-		this.color = color
-	}
-}
-
-class MainProperty {
-	src: string
-	title: string
-	reviews: Review[]
-	constructor(src: string, title: string, reviews: Review[]) {
-		this.src = src
-		this.title = title
-		this.reviews = reviews
-	}
-}
 let yourMainProperty = new MainProperty('images/italian-property.jpg', 'Italian Property', [
 	{
-		name: 'Oli',
+		name: 'Oliv',
 		stars: 5,
 		loyaltyUser: LoyaltyUser.GOLD_USER,
 		date: '12-04-2021',

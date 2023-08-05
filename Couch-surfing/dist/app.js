@@ -1,5 +1,6 @@
 import { showReviewTotal, populateUser, getTopTwoReviews } from './utils.js';
 import { Permissions, LoyaltyUser } from './enums.js';
+import MainProperty from './classes.js';
 const propertyContainer = document.querySelector('.properties');
 const reviewContainer = document.querySelector('.reviews');
 const container = document.querySelector('.container');
@@ -76,13 +77,6 @@ const properties = [
         contact: [+34829374892553, 'andyluger@aol.com'],
         isAvailable: true,
     },
-    // add another property card. The Property should have:
-    // 1 x picture of a 'Malaysian Hotel' called 'Malia Hotel'
-    // It should cost 35/night
-    // It's location should be 'Room 4, Malia , Malaysia, 45334'
-    // The contact email should be 'lee34@gmail.com'
-    // The phone number for the property should be +60349822083
-    // It should not be available
     {
         image: 'images/malaysian-hotel.jpg',
         title: 'Malia Hotel',
@@ -141,20 +135,6 @@ button.addEventListener('click', () => addReviews(reviews));
 let currentLocation = ['London', '11.03', 17];
 footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';
 // Classes
-class Car {
-    constructor(make, year, color) {
-        this.make = make;
-        this.year = year;
-        this.color = color;
-    }
-}
-class MainProperty {
-    constructor(src, title, reviews) {
-        this.src = src;
-        this.title = title;
-        this.reviews = reviews;
-    }
-}
 let yourMainProperty = new MainProperty('images/italian-property.jpg', 'Italian Property', [
     {
         name: 'Oliv',
