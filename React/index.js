@@ -1,1 +1,10 @@
-ReactDOM.render(<p>Hello World</p>, document.getElementById('hello'))
+ReactDOM.render(
+	<ul>
+		<li>Hello</li>
+		<li>World</li>
+		<li>🥸 </li>
+	</ul>,
+	document.getElementById('root')
+)
+
+
