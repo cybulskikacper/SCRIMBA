@@ -3,19 +3,23 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function Navbar() {
+function Facts() {
 	return (
 		<>
-			<nav>
-				<h1>Bob's Bistro</h1>
+			<div>
+				<h1> Fun facts about React</h1>
+
 				<ul>
-					<li>Menu</li>
-					<li>About</li>
-					<li>Contact</li>
+					<li>Was first relased in 2013</li>
+					<li>Was orginally created by Jordan Walke</li>
+					<li>Has well over 100K stars on Github</li>
+					<li>Is maintained by Facebook</li>
+					<li>Powers thousands of enterprise apps, including mobile apps</li>
+
 				</ul>
-			</nav>
+			</div>
 		</>
 	)
 }
 
-export default Navbar
+export default Facts
