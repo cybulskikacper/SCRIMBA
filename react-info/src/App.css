@@ -1,7 +1,15 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 .nav {
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 .nav-logo {
 	width: 60px;
@@ -14,5 +22,20 @@
 
 .nav-items > li {
 	padding: 10px;
+	font-size: 30px;
+	cursor: pointer;
 }
 
+.reasons {
+	text-align: center;
+}
+
+.header {
+	text-transform: uppercase;
+}
+.footer {
+	text-align: center;
+	border: 3px solid green;
+	text-transform: uppercase;
+	margin-top: 354px;
+}
