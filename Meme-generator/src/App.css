@@ -1,0 +1,44 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Karla', sans-serif;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	background-image: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+}
+
+.text {
+	font-family: 'Inter', sans-serif;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 15px;
+	letter-spacing: 0em;
+	text-align: right;
+	color: #ffffff;
+	margin-left: auto;
+}
+
+.title {
+	font-family: Karla;
+	font-size: 21px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: -0.1em;
+	text-align: left;
+	color: #ffffff;
+}
+
+.troll-face {
+	width: 80px;
+	top: 19px;
+	left: 20px;
+	padding: 20px;
+}
