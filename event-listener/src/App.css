@@ -3,34 +3,30 @@
 }
 
 body {
-	margin: 0;
-	font-family: 'Inter', sans-serif;
-	background-color: #262626;
-	color: #d9d9d9;
+	background-color: #70b85d;
+	color: white;
 	padding: 20px;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	font-family: 'Karla', sans-serif;
+	font-size: 1.3rem;
 }
 
-.state {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+button {
+	width: 100%;
+	background-color: transparent;
+	padding: 1rem;
+	color: white;
+	border: 2px solid white;
+	border-radius: 50px;
+	cursor: pointer;
+	font-family: 'Karla', sans-serif;
+	margin-bottom: 20px;
 }
 
-.state--title {
-	text-align: center;
+button:hover {
+	background-color: #fffef1;
+	color: #2c5e2e;
 }
 
-.state--value {
-	background-color: white;
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: #262626;
+button:focus {
+	outline: 0;
 }
