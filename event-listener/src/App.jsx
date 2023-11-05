@@ -2,32 +2,52 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+	const [contact, setContact] = useState({
+		firstName: 'John',
+		lastName: 'Doe',
+		phone: '+1 (719) 555-1212',
+		email: 'itsmyrealname@example.com',
+		isFavorite: false,
+	})
+
 	/**
-	 * Challenge: Convert the code below to use an array
-	 * held in state instead of a local variable. Initialize
-	 * the state array with the same 2 items below
-	 *
-	 * Don't worry about fixing `addItem` quite yet.
+	 * Challenge: Fill in the values in the markup
+	 * using the properties of our state object above
+	 * (Ignore `isFavorite` for now)
 	 */
 
-	const [thingsArray, setThingsArray] = useState(['Thing 1', 'Thing 2'])
-
-	function addItem() {
-		// We'll work on this next
-		// const newThingText = `Thing ${thingsArray.length + 1}`
-		// thingsArray.push(newThingText)
-		// document.getElementById()
-		// console.log(thingsArray)
+	function toggleFavorite() {
+		console.log('Toggle Favorite')
 	}
 
-	const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
+	function contactCard(props) {
+		return (
+			<main>
+				<article className="card">
+					<img src="./images/user.png" className="card--image" />
+					<div className="card--info">
+						<img src={`../images/star-empty.png`} className="card--favorite" onClick={toggleFavorite} />
+						<h2 className="card--name">${props.firstName}</h2>
+						<p className="card--contact">+1 (719) 555-1212</p>
+						<p className="card--contact">itsmyrealname@example.com</p>
+					</div>
+				</article>
+			</main>
+		)
+	}
+
 
 	return (
-		<div>
-			<button onClick={addItem}>Add Item</button>
-			{thingsElements}
-		</div>
-	)
+		<ContactCard
+		  firstName={contact.firstName}
+		  phone={contact.phone}
+		  email={contact.email}
+		  toggleFavorite={toggleFavorite}
+		/>
+	  )
+	
+
+
 }
 
 export default App
