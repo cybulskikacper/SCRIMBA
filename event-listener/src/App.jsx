@@ -2,14 +2,12 @@ import { useState } from 'react'
 import './App.css'
 
 function ContactCard(props) {
-
-	
 	return (
 		<main>
 			<article className="card">
 				<img src="./images/user.png" className="card--image" />
 				<div className="card--info">
-					<img src={`../images/star-empty.png`} className="card--favorite" onClick={toggleFavorite} />
+					<img src={`../images/star-empty.png`} className="card--favorite" onClick={props.toggleFavorite} />
 					<h2 className="card--name">
 						{props.firstName} {props.lastName}
 					</h2>
