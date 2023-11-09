@@ -7,7 +7,7 @@ function ContactCard(props) {
 			<article className="card">
 				<img src="./images/user.png" className="card--image" />
 				<div className="card--info">
-					<img src={`../images/star-empty.png`} className="card--favorite" onClick={props.toggleFavorite} />
+					<img src={`../images/${starIcon}`} className="card--favorite" onClick={props.toggleFavorite} />
 					<h2 className="card--name">
 						{props.firstName} {props.lastName}
 					</h2>
@@ -25,8 +25,10 @@ function App() {
 		lastName: 'Doe',
 		phone: '+1 (719) 555-1212',
 		email: 'itsmyrealname@example.com',
-		isFavorite: false,
+		isFavorite: true,
 	})
+
+	let starIcon = contact.isFavorite ? 'star-filled.png' : 'star-empty.png'
 
 	function toggleFavorite() {
 		console.log('Toggle Favorite')
@@ -38,6 +40,7 @@ function App() {
 			lastName={contact.lastName}
 			phone={contact.phone}
 			email={contact.email}
+			starIcon={starIcon}
 			toggleFavorite={toggleFavorite}
 		/>
 	)
