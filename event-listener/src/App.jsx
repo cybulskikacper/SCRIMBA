@@ -1,26 +1,9 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+
 import './App.css'
 
-function ContactCard(props) {
-	return (
-		<main>
-			<article className="card">
-				<img src="./images/user.png" className="card--image" />
-				<div className="card--info">
-					<img src={`../images/${starIcon}`} className="card--favorite" onClick={props.toggleFavorite} />
-					<h2 className="card--name">
-						{props.firstName} {props.lastName}
-					</h2>
-					<p className="card--contact">{props.phone}</p>
-					<p className="card--contact">{props.email}</p>
-				</div>
-			</article>
-		</main>
-	)
-}
-
 function App() {
-	const [contact, setContact] = useState({
+	const [contact, setContact] = React.useState({
 		firstName: 'John',
 		lastName: 'Doe',
 		phone: '+1 (719) 555-1212',
@@ -35,14 +18,19 @@ function App() {
 	}
 
 	return (
-		<ContactCard
-			firstName={contact.firstName}
-			lastName={contact.lastName}
-			phone={contact.phone}
-			email={contact.email}
-			starIcon={starIcon}
-			toggleFavorite={toggleFavorite}
-		/>
+		<main>
+			<article className="card">
+				<img src="./images/user.png" className="card--image" />
+				<div className="card--info">
+					<img src={`../images/${starIcon}`} className="card--favorite" onClick={toggleFavorite} />
+					<h2 className="card--name">
+						{contact.firstName} {contact.lastName}
+					</h2>
+					<p className="card--contact">{contact.phone}</p>
+					<p className="card--contact">{contact.email}</p>
+				</div>
+			</article>
+		</main>
 	)
 }
 
