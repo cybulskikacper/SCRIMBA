@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 
+// React
+
+import Star from './components/Star'
+
+// CSS
 import './App.css'
 
 function App() {
@@ -28,6 +33,8 @@ function App() {
 	 (lub aktualizacja poprzedniego) będzie miała przeciwną wartość w właściwości isFavorite. Czyli zamiana z true na false 
 		*/
 
+	let starIcon = contact.isFavorite ? 'star-filled.png' : 'star-empty.png'
+
 	function toggleFavorite() {
 		setContact(prevContact => {
 			return {
@@ -37,14 +44,13 @@ function App() {
 		})
 	}
 
-	let starIcon = contact.isFavorite ? 'star-filled.png' : 'star-empty.png'
-
 	return (
 		<main>
 			<article className="card">
 				<img src="./images/user.png" className="card--image" />
 				<div className="card--info">
-					<img src={`../images/${starIcon}`} className="card--favorite" onClick={toggleFavorite} />
+					<Star isFilled={contact.isFavorite} handleClick={toggleFavorite} />
+
 					<h2 className="card--name">
 						{contact.firstName} {contact.lastName}
 					</h2>
