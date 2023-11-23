@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Boxes from './Boxes'
+import Box from '../components/Box'
 import './App.css'
 
 function App(props) {
@@ -9,11 +10,14 @@ function App(props) {
 		backgroundColor: props.darkMode ? '#222222' : '#cccccc',
 	}
 
-	// Challenge: use a ternary to determine the backgroundColor.
-	// If darkMode is true, set it to #222222
-	// If darkMode is false, set it to #cccccc
-
-	const squareElements = squares.map(square => <div style={styles} className="box" key={square.id}></div>)
+	const squareElements = squares.map(square => 
+	
+	
+	<Box key={square.id} on={square.on} 
+	
+	
+	
+	/>)
 
 	return (
 		<main>
