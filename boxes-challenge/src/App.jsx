@@ -6,18 +6,21 @@ import './App.css'
 function App(props) {
 	const [squares, setSquares] = useState(Boxes)
 
-	const styles = {
-		backgroundColor: props.darkMode ? '#222222' : '#cccccc',
+	function toggle(id) {
+		/**
+		 * Challenge: use setSquares to update the
+		 * correct square in the array.
+		 *
+		 * Make sure not to directly modify state!
+		 *
+		 * Hint: look back at the lesson on updating arrays
+		 * in state if you need a reminder on how to do this
+		 */
+
+		setSquares(prevS)
 	}
 
-	const squareElements = squares.map(square => 
-	
-	
-	<Box key={square.id} on={square.on} 
-	
-	
-	
-	/>)
+	const squareElements = squares.map(square => <Box key={square.id} id={square.id} on={square.on} toggle={toggle} />)
 
 	return (
 		<main>
