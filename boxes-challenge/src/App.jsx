@@ -6,21 +6,23 @@ import './App.css'
 function App(props) {
 	const [squares, setSquares] = useState(Boxes)
 
-	function toggle(id) {
-		/**
-		 * Challenge: use setSquares to update the
-		 * correct square in the array.
-		 *
-		 * Make sure not to directly modify state!
-		 *
-		 * Hint: look back at the lesson on updating arrays
-		 * in state if you need a reminder on how to do this
-		 */
+	/**
+	 * Challenge: use setSquares to update the
+	 * correct square in the array.
+	 * Make sure not to directly modify state!
+	 */
 
-		setSquares(prevS)
+	function toggle(id) {
+		setSquares(prevSquare => {
+			return prevSquare.map(square => {
+				return square.id === id ? { ...square, on: !square.on } : square
+			})
+		})
 	}
 
-	const squareElements = squares.map(square => <Box key={square.id} id={square.id} on={square.on} toggle={toggle} />)
+	const squareElements = squares.map(square => (
+		<Box key={square.id} on={square.on} toggle={() => toggle(square.id)} />
+	))
 
 	return (
 		<main>
