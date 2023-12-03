@@ -2,17 +2,19 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-	const [formData, setFormData] = useState({ firstName: '', lastName: '' })
-
-
-	console.log(formData);
-
-
+	const [formData, setFormData] = useState({
+		firstName: '',
+		lastName: '',
+	})
 
 	function handleChange(event) {
-		setFormData(prevFormData => {
+		
+
+		console.log(formData);
+
+		setFormData(prevformData => {
 			return {
-				...prevFormData,
+				...prevformData,
 				[event.target.name]: event.target.value,
 			}
 		})
@@ -21,6 +23,7 @@ function App() {
 	return (
 		<form>
 			<input type="text" placeholder="First Name" onChange={handleChange} name="firstName" />
+
 			<input type="text" placeholder="Last Name" onChange={handleChange} name="lastName" />
 		</form>
 	)
