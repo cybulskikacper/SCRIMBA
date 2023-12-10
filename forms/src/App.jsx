@@ -33,19 +33,28 @@ function App() {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<label htmlFor="">First Name</label>
-			<input type="text" onChange={handleChange} name="firstName" value={formData.firstName} />
+			<label htmlFor={id + '-firstName'}>First Name</label>
+			<input type="text" onChange={handleChange} name="firstName" value={formData.firstName} id={id + '-firstName'} />
 
-			<label>Last Name</label>
-			<input type="text" onChange={handleChange} name="lastName" value={formData.lastName} />
-			<label>Email</label>
-			<input type="text" onChange={handleChange} name="email" value={formData.email} />
+			<label htmlFor={id + '-lastName'}>Last Name</label>
+			<input type="text" onChange={handleChange} name="lastName" value={formData.lastName} id={id + '-lastName'} />
 
-			<textarea placeholder="Comments" onChange={handleChange} name="comments" value={formData.comments} />
+			<label htmlFor={id + '-email'}>Email</label>
+			<input type="text" onChange={handleChange} name="email" value={formData.email} id={id + '-email'} />
 
-			<input type="checkbox" id="isFriendly" checked={formData.isFriendly} name="isFriendly" onChange={handleChange} />
+			<label htmlFor={id + '-comments'}>Comments</label>
 
-			<label htmlFor="isFriendly">Are you friendly?</label>
+			<textarea value={formData.comments} onChange={handleChange} name="comments" id={id + '-comments'} />
+
+			<input
+				type="checkbox"
+				id={id + '-isFriendly'}
+				checked={formData.isFriendly}
+				name="isFriendly"
+				onChange={handleChange}
+			/>
+
+			<label htmlFor={id + '-isFriendly'}>Are you friendly?</label>
 
 			<br />
 			<br />
@@ -53,24 +62,45 @@ function App() {
 			<fieldset>
 				<legend>Current employment status</legend>
 
-				<input type="radio" id="unemployed" name="employment" value="unemployed" checked={formData.employment === 'unemployed'} onChange={handleChange} />
-				<label htmlFor="unemployed">Unemployed </label>
+				<input
+					type="radio"
+					id={id + '-unemployed'}
+					name="employment"
+					value="unemployed"
+					checked={formData.employment === 'unemployed'}
+					onChange={handleChange}
+				/>
+				<label htmlFor={id + '-unemployed'}>Unemployed </label>
 				<br />
 
-				<input type="radio" id="part-time" name="employment" value="part-time" checked={formData.employment === 'part-time'} onChange={handleChange} />
-				<label htmlFor="part-time">Part-time </label>
+				<input
+					type="radio"
+					id={id + '- part-time'}
+					name="employment"
+					value="part-time"
+					checked={formData.employment === 'part-time'}
+					onChange={handleChange}
+				/>
+				<label htmlFor={id + '-part-time'}>Part-time </label>
 				<br />
 
-				<input type="radio" id="full-time" name="employment" value="full-time" checked={formData.employment === 'full-time'} onChange={handleChange} />
-				<label htmlFor="full-time">Full-time </label>
+				<input
+					type="radio"
+					id={id + 'full-time'}
+					name="employment"
+					value="full-time"
+					checked={formData.employment === 'full-time'}
+					onChange={handleChange}
+				/>
+				<label htmlFor={id + 'full-time'}>Full-time </label>
 				<br />
 			</fieldset>
 
 			<br />
 
-			<label htmlFor="favColor">What is your favorite color?</label>
+			<label htmlFor={id + '-favColor'}>What is your favorite color?</label>
 			<br />
-			<select id="favColor" value={formData.favColor} onChange={handleChange} name="favColor">
+			<select id={id + '-favColor'} value={formData.favColor} onChange={handleChange} name="favColor">
 				<option value="">-- Choose --</option>
 				<option value="red">Red</option>
 				<option value="orange">Orange</option>
