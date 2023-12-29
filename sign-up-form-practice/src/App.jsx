@@ -1,28 +1,12 @@
 import { useState } from 'react'
 import { useId } from 'react'
-
 import './index.css'
-
-/**
- * Challenge: Connect the form to local state
-
- * 2. Create a single handleChange function that can
- *    manage the state of all the inputs and set it up
- *    correctly
- * 3. When the user clicks "Sign up", check if the
- *    password & confirmation match each other. If
- *    so, log "Successfully signed up" to the console.
- *    If not, log "passwords to not match" to the console.
- * 4. Also when submitting the form, if the person checked
- *    the "newsletter" checkbox, log "Thanks for signing
- *    up for our newsletter!" to the console.
- */
 
 function App() {
 	const [formData, setFormData] = useState({
 		email: '',
 		password: '',
-		confirmpassword: '',
+		passwordConfirm: '',
 		newsletter: true,
 	})
 
@@ -34,12 +18,23 @@ function App() {
 		setFormData(prevFormData => {
 			return {
 				...prevFormData,
+				[name]: type === 'checkbox' ? checked : value,
 			}
 		})
 	}
 
 	function handleSubmit(event) {
 		event.preventDefault()
+		if (formData.password === formData.passwordConfirm) {
+			console.log('Successfully signed up')
+		} else {
+			console.log('Passwords do not match')
+			return
+		}
+
+		if (formData.newsletter) {
+			console.log('Thanks for signing up for our newsletter!')
+		}
 	}
 
 	return (
@@ -66,8 +61,8 @@ function App() {
 						type="password"
 						placeholder="Confirm password"
 						className="form--input"
-						name="confirmpassword"
-						value={formData.confirmpassword}
+						name="passwordConfirm"
+						value={formData.passwordConfirm}
 						onChange={handleChange}
 					/>
 
