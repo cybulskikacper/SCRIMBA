@@ -14,7 +14,7 @@ import './App.css'
  */
 
 function App() {
-	const [messages, setMessages] = useState(['a', 'b'])
+	const [messages, setMessages] = useState(['a','b'])
 	/**
 	 * Challenge:
 	 * - If there are no unread messages, display "You're all caught up!"
@@ -23,7 +23,17 @@ function App() {
 	 *      - If there's exactly 1 unread message, it should read "message"
 	 *        (singular)
 	 */
-	return <div></div>
+	return (
+		<div>
+			{messages.length === 0 ? (
+				<h1>You're all caught up!</h1>
+			) : (
+				<h1>
+					You have {messages.length} unread {messages.length > 1 ? 'messages' : 'message'}
+				</h1>
+			)}
+		</div>
+	)
 }
 
 export default App

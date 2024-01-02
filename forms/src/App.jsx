@@ -34,7 +34,7 @@ function App() {
 	return (
 		<form onSubmit={handleSubmit}>
 			<label htmlFor={id + '-firstName'}>First Name</label>
-			<input type="text" onChange={handleChange} name="firstName" value={formData.firstName} id={id + '-firstName'} />
+			<input type="text" onChange={handleChange} name="firstame" value={formData.firstName} id={id + '-firstName'} />
 
 			<label htmlFor={id + '-lastName'}>Last Name</label>
 			<input type="text" onChange={handleChange} name="lastName" value={formData.lastName} id={id + '-lastName'} />
