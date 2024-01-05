@@ -7,7 +7,7 @@ function App() {
 	const [show, setShow] = useState(true)
 
 	const toggleShow = () => {
-		setShow(!show)
+		setShow(prevShow => !prevShow)
 	}
 
 	return (
@@ -16,7 +16,7 @@ function App() {
 			 */}
 
 			<button onClick={toggleShow}>Toggle WindowTracker</button>
-			<WindowTracker />
+			{show && <WindowTracker />}
 		</div>
 	)
 }
