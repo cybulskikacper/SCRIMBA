@@ -12,11 +12,11 @@ function App() {
 
 	return (
 		<div className="container">
-			{/*  Only display `<WindowTracker>` if `show` is `true`
-			 */}
 
 			<button onClick={toggleShow}>Toggle WindowTracker</button>
+
 			{show && <WindowTracker />}
+			
 		</div>
 	)
 }

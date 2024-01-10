@@ -1,8 +1,34 @@
-# React + Vite
+ # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Meme Generator in React
 
-Currently, two official plugins are available:
+## [Live demo](https://memegeneratorinreactjs.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+### Screenshot
+
+<img width="797" alt="ss" src="https://github.com/cybulskikacper/Meme-Generator/assets/121769239/d585b518-7a0d-4bdf-917d-d171ba96211d">
+
+
+
+### Built with 
+
+- HTML
+- CSS
+- React
+- Vite
+
+
+
+
+
+  ### What I learned
+
+- Working with API
+- Working with React Hooks (useEffect, useState)
+- Forms
+- Conditional rendering
+- Side effects 
+
+
