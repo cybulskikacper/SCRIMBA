@@ -6,6 +6,7 @@ body {
 	margin: 0;
 	background-color: #0b2434;
 	padding: 20px;
+	font-family: 'Karla', sans-serif;
 }
 
 main {
@@ -26,6 +27,7 @@ main {
 	display: grid;
 	grid-template: auto auto / repeat(5, 1fr);
 	gap: 20px;
+	padding: 50px;
 }
 
 .die-value {
@@ -42,4 +44,28 @@ main {
 
 .die-num {
 	font-size: 2rem;
+}
+
+.roll {
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 19px;
+	letter-spacing: 0em;
+	text-align: center;
+	font-family: 'Karla', sans-serif;
+	color: #ffffff;
+	background-color: #5035ff;
+	cursor: pointer;
+
+	width: 220px;
+	height: 85px;
+	border-radius: 6px;
+}
+
+.roll:focus {
+	outline: none;
+}
+
+.roll:active {
+	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
