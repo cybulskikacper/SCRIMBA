@@ -3,69 +3,44 @@
 }
 
 body {
-	margin: 0;
 	background-color: #0b2434;
-	padding: 20px;
-	font-family: 'Karla', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	margin: 0;
+	height: 100vh;
 }
 
 main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	background-color: #f5f5f5;
-
+	border-radius: 15px;
+	width: 700px;
 	height: 600px;
-	width: 100%;
-
-	border-radius: 5px;
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	padding: 200px;
 }
 
 .container {
 	display: grid;
-	grid-template: auto auto / repeat(5, 1fr);
-	gap: 20px;
-	padding: 50px;
+	flex-direction: column;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+
+	grid-column-gap: 10px;
+	grid-row-gap: 30px;
 }
 
-.die-value {
-	height: 50px;
-	width: 50px;
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
-	border-radius: 10px;
+.numbers {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	border-radius: 5px;
+	box-shadow: 0px 2px 2px 0px #00000026;
+	background-color: #f5f5f5;
 	cursor: pointer;
-	background-color: white;
-}
-
-.die-num {
-	font-size: 2rem;
-}
-
-.roll {
-	font-size: 1.2rem;
-	font-weight: 700;
-	line-height: 19px;
-	letter-spacing: 0em;
-	text-align: center;
-	font-family: 'Karla', sans-serif;
-	color: #ffffff;
-	background-color: #5035ff;
-	cursor: pointer;
-
-	width: 220px;
-	height: 85px;
-	border-radius: 6px;
-}
-
-.roll:focus {
-	outline: none;
-}
-
-.roll:active {
-	box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
