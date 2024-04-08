@@ -1,17 +1,6 @@
 import Die from './components/Die'
 import { useState, useEffect } from 'react'
-
-/**
- * Challenge:
- *
- * Create state to hold our array of numbers. (Initialize
- * the state by calling our `allNewDice` function so it
- * loads all new dice as soon as the app loads)
- *
- * Map over the state numbers array to generate our array
- * of Die elements and render those in place of our
- * manually-written 10 Die elements.
- */
+import { nanoid } from 'nanoid'
 
 export default function App() {
 	const [numbers, setNumbers] = useState([])
@@ -25,7 +14,11 @@ export default function App() {
 
 		for (let i = 0; i < 10; i++) {
 			const randomNumber = Math.floor(Math.random() * 6) + 1
-			arr.push(randomNumber)
+			arr.push({
+				value: randomNumber,
+				isHeld: true,
+				id: nanoid(),
+			})
 		}
 		setNumbers(arr)
 	}
@@ -34,7 +27,9 @@ export default function App() {
 		allNewDice()
 	}
 
-	const diceComponents = numbers.map((number, index) => <Die key={index} value={number.toString()} />)
+	const diceComponents = numbers.map(number => (
+		<Die key={number.id} value={number.value.toString()} isHeld={number.isHeld} />
+	))
 
 	return (
 		<main>
