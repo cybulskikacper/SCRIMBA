@@ -5,6 +5,11 @@ export default function Die(props) {
 		backgroundColor: props.isHeld ? '#59E391' : 'transparent',
 	}
 
+	
+	
+
+
+
 	return (
 		<div className="num-container" style={style}>
 			<h2 className="number">{props.value}</h2>
