@@ -5,13 +5,12 @@ export default function Die(props) {
 		backgroundColor: props.isHeld ? '#59E391' : 'transparent',
 	}
 
-	
-	
-
-
+	function handleClick() {
+		props.holdDice(props.id)
+	}
 
 	return (
-		<div className="num-container" style={style}>
+		<div className="num-container" style={style} onClick={handleClick}>
 			<h2 className="number">{props.value}</h2>
 		</div>
 	)
