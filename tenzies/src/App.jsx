@@ -1,38 +1,27 @@
 import Die from './components/Die'
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 export default function App() {
-	const [numbers, setNumbers] = useState([])
+	const [numbers, setNumbers] = useState(allNewDice())
 	const [tenzies, setTenzies] = useState(false)
 
-	/**
-	 * Challenge: Check the dice array for these winning conditions:
-	 * 1. All dice are held, and
-	 * 2. all dice have the same value
-	 *
-	 * If both conditions are true, set `tenzies` to true and log
-	 * "You won!" to the console
-	 */
-
-	function checkForTenzies(numbers) {
-		if (numbers.length === 0) return false
-
-		const firstValue = numbers[0].value
-
-		return numbers.every(number => number.length === firstValue)
-	}
-
 	useEffect(() => {
-		const allDiceCheck = numbers.every(number => number.isheld)
+		if (numbers.length > 0) {
+			const isHeld = numbers.every(number => number.isHeld)
+			const firstValue = numbers[0].value
+			const sameValue = numbers.every(number => number.value === firstValue)
 
-		const diceValue = checkForTenzies(numbers)
-
-		allDiceCheck & diceValue ? console.log('you won') : setTenzies(false)
+			if (isHeld && sameValue) {
+				setTenzies(true)
+				console.log('You won!')
+			}
+		}
 	}, [numbers])
 
 	useEffect(() => {
-		allNewDice()
+		setNumbers(allNewDice())
 	}, [])
 
 	function allNewDice() {
@@ -46,11 +35,18 @@ export default function App() {
 				id: nanoid(),
 			})
 		}
-		setNumbers(arr)
+		return arr
 	}
 	// jak klikam na jakis number i ma on isheld na true i potem klikne roll to on zostaje, nie odswieza sie
 	function handleAllNewDice() {
-		setNumbers(prevNum => prevNum.map(num => (num.isHeld ? num : { ...num, value: Math.floor(Math.random() * 6) + 1 })))
+		if (!tenzies) {
+			setNumbers(prevNum =>
+				prevNum.map(num => (num.isHeld ? num : { ...num, value: Math.floor(Math.random() * 6) + 1 }))
+			)
+		} else {
+			setTenzies(false)
+			allNewDice()
+		}
 	}
 
 	// jak klikniemy na number to on ma wtedy isheld: true, jak klikniemy ponownie to ta wartosc flipuje sie na false, jest to taki jak by  "wlacznik swiatla"
@@ -71,10 +67,12 @@ export default function App() {
 				Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
 			</p>
 
+			{tenzies ? <Confetti /> : ''}
+
 			<div className="container">{diceComponents}</div>
 
 			<button onClick={handleAllNewDice} className="roll">
-				Roll
+				{tenzies ? 'New Game' : 'Roll'}
 			</button>
 		</main>
 	)
